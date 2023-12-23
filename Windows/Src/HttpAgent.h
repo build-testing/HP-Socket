@@ -33,7 +33,7 @@ template<class T, USHORT default_port> class CHttpAgentT : public IComplexHttpRe
 protected:
 	typedef CHttpObjPoolT<FALSE, CHttpAgentT, TSocketObj>	CHttpObjPool;
 	typedef THttpObjT<CHttpAgentT, TSocketObj>				THttpObj;
-	friend struct											THttpObj;
+	friend struct											THttpObjT<CHttpAgentT, TSocketObj>;
 
 public:
 	virtual BOOL SendRequest(CONNID dwConnID, LPCSTR lpszMethod, LPCSTR lpszPath, const THeader lpHeaders[] = nullptr, int iHeaderCount = 0, const BYTE* pBody = nullptr, int iLength = 0);

@@ -37,7 +37,7 @@ class CUdpArqServer : public IArqSocket, public CUdpServer
 	typedef CArqSessionPoolT<CUdpArqServer, TUdpSocketObj>	CArqSessionPool;
 	typedef unordered_map<THR_ID, CBufferPtr*>				CRecvBufferMap;
 
-	friend class											CArqSession;
+	friend class											CArqSessionT<CUdpArqServer, TUdpSocketObj>;
 
 public:
 	virtual BOOL Send		(CONNID dwConnID, const BYTE* pBuffer, int iLength, int iOffset = 0);

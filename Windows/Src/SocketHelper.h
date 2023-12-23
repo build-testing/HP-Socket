@@ -321,7 +321,7 @@ template<class T> struct TBufferObjBase
 		T* pBufferObj = (T*)heap.Alloc(sizeof(T) + dwCapacity);
 		ASSERT(pBufferObj);
 
-		pBufferObj->TBufferObjBase::TBufferObjBase(heap, dwCapacity);
+		pBufferObj->TBufferObjBase<T>::TBufferObjBase(heap, dwCapacity);
 		pBufferObj->buff.buf = ((char*)pBufferObj) + sizeof(T);
 
 		return pBufferObj;

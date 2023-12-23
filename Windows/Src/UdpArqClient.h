@@ -31,7 +31,7 @@
 class CUdpArqClient : public IArqClient, public CUdpClient
 {
 	typedef CArqSessionT<CUdpArqClient, CUdpArqClient>	CArqSession;
-	friend class										CArqSession;
+	friend class										CArqSessionT<CUdpArqClient, CUdpArqClient>;
 
 public:
 	virtual BOOL Send		(const BYTE* pBuffer, int iLength, int iOffset = 0);

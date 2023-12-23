@@ -32,7 +32,7 @@ template<class R, class T, USHORT default_port> class CHttpClientT : public R, p
 {
 protected:
 	typedef THttpObjT<CHttpClientT, IHttpClient>	THttpObj;
-	friend struct									THttpObj;
+	friend struct									THttpObjT<CHttpClientT, IHttpClient>;
 
 public:
 	virtual BOOL SendRequest(LPCSTR lpszMethod, LPCSTR lpszPath, const THeader lpHeaders[] = nullptr, int iHeaderCount = 0, const BYTE* pBody = nullptr, int iLength = 0);
@@ -223,7 +223,7 @@ protected:
 template<class T, USHORT default_port> class CHttpSyncClientT : public CHttpClientT<IHttpSyncRequester, T, default_port>, private CHttpClientListener
 {
 protected:
-	using typename CHttpClientT::THttpObj;
+	// using typename CHttpClientT::THttpObj;
 
 public:
 	virtual BOOL Start(LPCTSTR lpszRemoteAddress, USHORT usPort, BOOL bAsyncConnect = TRUE, LPCTSTR lpszBindAddress = nullptr, USHORT usLocalPort = 0);

@@ -33,11 +33,11 @@ template<class T, USHORT default_port> class CHttpServerT : public IComplexHttpR
 {
 protected:
 	typedef CThread<CHttpServerT>							CCleanThread;
-	friend class											CCleanThread;
+	friend class											CThread<CHttpServerT>;
 
 	typedef CHttpObjPoolT<TRUE, CHttpServerT, TSocketObj>	CHttpObjPool;
 	typedef THttpObjT<CHttpServerT, TSocketObj>				THttpObj;
-	friend struct											THttpObj;
+	friend struct											THttpObjT<CHttpServerT, TSocketObj>;
 
 public:
 	virtual BOOL Start(LPCTSTR lpszBindAddress, USHORT usPort);
